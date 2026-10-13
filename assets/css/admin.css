@@ -1,0 +1,260 @@
+.mrmk-st-page {
+	max-width: 1180px;
+}
+
+.mrmk-st-page [hidden] {
+	display: none !important;
+}
+
+.mrmk-st-page__header {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: 24px;
+	margin: 24px 0;
+}
+
+.mrmk-st-page__header h1 {
+	margin: 0;
+	font-size: 28px;
+	font-weight: 600;
+}
+
+.mrmk-st-page__eyebrow {
+	margin: 0 0 6px;
+	color: #646970;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: .08em;
+	text-transform: uppercase;
+}
+
+.mrmk-st-page__intro {
+	margin: 8px 0 0;
+	color: #646970;
+	font-size: 14px;
+}
+
+.mrmk-st-page__count,
+.mrmk-st-card__category {
+	display: inline-flex;
+	align-items: center;
+	min-height: 26px;
+	padding: 0 10px;
+	border-radius: 999px;
+	background: #f0f0f1;
+	color: #50575e;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.mrmk-st-toolbar {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	margin: 0 0 18px;
+}
+
+.mrmk-st-toolbar__search {
+	width: min(100%, 380px);
+	min-height: 40px;
+	padding: 0 12px;
+	border-color: #c3c4c7;
+	border-radius: 6px;
+}
+
+.mrmk-st-toolbar__search:focus {
+	border-color: #2271b1;
+	box-shadow: 0 0 0 1px #2271b1;
+}
+
+.mrmk-st-toolbar__hint {
+	color: #646970;
+	font-size: 13px;
+}
+
+.mrmk-st-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(min(100%, 310px), 1fr));
+	gap: 16px;
+}
+
+.mrmk-st-card {
+	display: flex;
+	min-height: 194px;
+	flex-direction: column;
+	justify-content: space-between;
+	border: 1px solid #dcdcde;
+	border-radius: 8px;
+	background: #fff;
+	box-shadow: 0 1px 2px rgb(0 0 0 / 4%);
+	transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.mrmk-st-card.is-enabled {
+	border-color: #8cbedc;
+}
+
+.mrmk-st-card:hover {
+	box-shadow: 0 3px 10px rgb(0 0 0 / 8%);
+}
+
+.mrmk-st-card__body {
+	padding: 18px 18px 14px;
+}
+
+.mrmk-st-card__meta {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.mrmk-st-card__state {
+	color: #646970;
+	font-size: 12px;
+}
+
+.mrmk-st-card.is-enabled .mrmk-st-card__state {
+	color: #135e96;
+	font-weight: 600;
+}
+
+.mrmk-st-card h2 {
+	margin: 16px 0 7px;
+	font-size: 16px;
+	line-height: 1.4;
+}
+
+.mrmk-st-card p {
+	margin: 0;
+	color: #646970;
+	font-size: 13px;
+	line-height: 1.55;
+}
+
+.mrmk-st-card__footer {
+	padding: 13px 18px;
+	border-top: 1px solid #f0f0f1;
+}
+
+.mrmk-st-toggle {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	color: #1d2327;
+	cursor: pointer;
+	font-size: 13px;
+}
+
+.mrmk-st-toggle__input {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+}
+
+.mrmk-st-toggle__track {
+	position: relative;
+	width: 36px;
+	height: 18px;
+	border: 1px solid #bfbfbf;
+	border-radius: 999px;
+	background: #dcdcde;
+	transition: background .15s ease, border-color .15s ease;
+}
+
+.mrmk-st-toggle__track::after {
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	background: #fff;
+	box-shadow: 0 1px 2px rgb(0 0 0 / 25%);
+	content: "";
+	transition: transform .15s ease;
+}
+
+.mrmk-st-toggle__input:checked + .mrmk-st-toggle__track {
+	border-color: #2271b1;
+	background: #2271b1;
+}
+
+.mrmk-st-toggle__input:checked + .mrmk-st-toggle__track::after {
+	transform: translateX(16px);
+}
+
+.mrmk-st-toggle__input:focus-visible + .mrmk-st-toggle__track {
+	outline: 2px solid #2271b1;
+	outline-offset: 2px;
+}
+
+.mrmk-st-no-results {
+	padding: 28px;
+	border: 1px dashed #c3c4c7;
+	border-radius: 8px;
+	background: #fff;
+	color: #646970;
+	text-align: center;
+}
+
+.mrmk-st-save-bar {
+	position: sticky;
+	bottom: 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	margin: 20px -20px 0;
+	padding: 12px 20px;
+	border-top: 1px solid #dcdcde;
+	background: rgb(255 255 255 / 95%);
+	box-shadow: 0 -2px 8px rgb(0 0 0 / 4%);
+}
+
+.mrmk-st-save-bar p {
+	margin: 0;
+	color: #646970;
+}
+
+.mrmk-st-save-bar .button {
+	margin: 0;
+}
+
+@media (max-width: 782px) {
+	.mrmk-st-page__header {
+		align-items: flex-start;
+	}
+
+	.mrmk-st-page__count {
+		flex: 0 0 auto;
+	}
+
+	.mrmk-st-toolbar {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+
+	.mrmk-st-toolbar__search {
+		width: 100%;
+	}
+
+	.mrmk-st-save-bar {
+		margin-right: -10px;
+		margin-left: -10px;
+		padding-right: 10px;
+		padding-left: 10px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.mrmk-st-card,
+	.mrmk-st-toggle__track,
+	.mrmk-st-toggle__track::after {
+		transition: none;
+	}
+}
