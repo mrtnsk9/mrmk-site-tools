@@ -50,13 +50,16 @@
 
 .mrmk-st-toolbar {
 	display: flex;
-	align-items: center;
+	align-items: flex-end;
+	flex-wrap: wrap;
 	gap: 14px;
 	margin: 0 0 18px;
 }
 
 .mrmk-st-toolbar__search {
-	width: min(100%, 380px);
+	flex: 1 1 260px;
+	width: 100%;
+	max-width: 380px;
 	min-height: 40px;
 	padding: 0 12px;
 	border-color: #c3c4c7;
@@ -68,7 +71,28 @@
 	box-shadow: 0 0 0 1px #2271b1;
 }
 
+.mrmk-st-toolbar__filter {
+	display: flex;
+	min-width: 150px;
+	flex-direction: column;
+	gap: 4px;
+	color: #50575e;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.mrmk-st-toolbar__select {
+	width: 100%;
+	min-height: 40px;
+	padding: 0 30px 0 10px;
+	border-color: #c3c4c7;
+	border-radius: 6px;
+	font-size: 13px;
+	font-weight: 400;
+}
+
 .mrmk-st-toolbar__hint {
+	margin-left: auto;
 	color: #646970;
 	font-size: 13px;
 }
@@ -241,6 +265,16 @@
 
 	.mrmk-st-toolbar__search {
 		width: 100%;
+		max-width: none;
+		flex: 0 1 auto;
+	}
+
+	.mrmk-st-toolbar__filter {
+		width: 100%;
+	}
+
+	.mrmk-st-toolbar__hint {
+		margin-left: 0;
 	}
 
 	.mrmk-st-save-bar {

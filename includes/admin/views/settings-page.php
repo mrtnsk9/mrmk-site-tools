@@ -2,6 +2,18 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
+if ( empty($features) ) exit;
+if ( empty($plugin) ) exit;
+
+/** @var MRMK_ST_Plugin $plugin */
+$categories = array();
+foreach ( $features as $feature ) {
+	if ( ! empty( $feature['category'] ) ) {
+		$categories[ $feature['category'] ] = $feature['category'];
+	}
+}
+natcasesort( $categories );
 ?>
 <div class="wrap mrmk-st-page">
 	<header class="mrmk-st-page__header">
@@ -39,10 +51,34 @@ if ( ! defined( 'ABSPATH' ) ) {
 				placeholder="<?php echo esc_attr__( 'Search features…', 'mrmk-st' ); ?>"
 				autocomplete="off"
 			/>
+			<label class="mrmk-st-toolbar__filter" for="mrmk-st-feature-status">
+				<span><?php echo esc_html__( 'Status', 'mrmk-st' ); ?></span>
+				<select id="mrmk-st-feature-status" class="mrmk-st-toolbar__select">
+					<option value="all"><?php echo esc_html__( 'All statuses', 'mrmk-st' ); ?></option>
+					<option value="enabled"><?php echo esc_html__( 'Enabled only', 'mrmk-st' ); ?></option>
+					<option value="disabled"><?php echo esc_html__( 'Disabled only', 'mrmk-st' ); ?></option>
+				</select>
+			</label>
+			<label class="mrmk-st-toolbar__filter" for="mrmk-st-feature-category">
+				<span><?php echo esc_html__( 'Category', 'mrmk-st' ); ?></span>
+				<select id="mrmk-st-feature-category" class="mrmk-st-toolbar__select">
+					<option value=""><?php echo esc_html__( 'All categories', 'mrmk-st' ); ?></option>
+					<?php foreach ( $categories as $category ) : ?>
+						<option value="<?php echo esc_attr( $category ); ?>"><?php echo esc_html( $category ); ?></option>
+					<?php endforeach; ?>
+				</select>
+			</label>
+			<label class="mrmk-st-toolbar__filter" for="mrmk-st-feature-sort">
+				<span><?php echo esc_html__( 'Sort', 'mrmk-st' ); ?></span>
+				<select id="mrmk-st-feature-sort" class="mrmk-st-toolbar__select">
+					<option value="name"><?php echo esc_html__( 'Name A–Z', 'mrmk-st' ); ?></option>
+					<option value="enabled"><?php echo esc_html__( 'Enabled first', 'mrmk-st' ); ?></option>
+				</select>
+			</label>
 			<span
 				class="mrmk-st-toolbar__hint"
 				data-search-results
-				data-results-template="<?php echo esc_attr__( '%1$d of %2$d features shown', 'mrmk-st' ); ?>"
+				data-results-template="<?php echo esc_attr__( '%1$d of %2$d features shown (%3$d enabled)', 'mrmk-st' ); ?>"
 				aria-live="polite"
 			>
 				<?php echo esc_html__( 'All features shown', 'mrmk-st' ); ?>
@@ -60,6 +96,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<article
 						class="mrmk-st-card<?php echo $enabled ? ' is-enabled' : ''; ?>"
 						data-feature-card
+						data-name="<?php echo esc_attr( $feature['name'] ); ?>"
+						data-category="<?php echo esc_attr( $feature['category'] ); ?>"
 						data-search="<?php echo esc_attr( strtolower( $feature['name'] . ' ' . $feature['description'] . ' ' . $feature['category'] ) ); ?>"
 					>
 						<div class="mrmk-st-card__body">
