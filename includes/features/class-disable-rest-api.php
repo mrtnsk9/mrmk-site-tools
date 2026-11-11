@@ -8,7 +8,7 @@ class MRMK_ST_Feature_Disable_REST implements MRMK_ST_Feature_Interface {
 		return array(
 			'slug'            => 'disable_rest_api',
 			'name'            => 'Disable REST API',
-			'description'     => 'Disables REST API for unauthorized users. Removes api link from head. Returns 401 error.',
+			'description'     => 'Disables REST API for unauthorized users. Removes API and oEmbed links from head. Returns 401 error.',
 			'category'        => 'Security',
 			'default_enabled' => false,
 		);
@@ -33,5 +33,11 @@ class MRMK_ST_Feature_Disable_REST implements MRMK_ST_Feature_Interface {
 
 		// Remove rest api link https://example.site/wp-json/ from head
 		remove_action( 'wp_head', 'rest_output_link_wp_head');
+
+		// Remove oEmbed discovery links from head
+		remove_action( 'wp_head', 'wp_oembed_add_discovery_links');
+
+		// Remove rest from "Link" response header
+		remove_action( 'template_redirect', 'rest_output_link_header', 11);
 	}
 }
