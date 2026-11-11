@@ -19,6 +19,9 @@ Each feature is independent and disabled by default. Enable only the features yo
 - **Disable Author Pages** — returns a 404 for author archives and removes standard author archive links from the front end.
 - **Disable Comments** — hides existing comments on public pages, blocks new comments, and returns 404 for comment feeds. Comments remain stored and accessible in the admin.
 - **Disable Feed Links** — removes feed discovery links and returns 404 for feed URLs.
+- **Disable WP Font Library** — removes the Fonts admin page, disables its REST API, and prevents user-managed font faces from loading. Existing font data remains stored, and theme fonts are unaffected.
+- **Disable Tags** — removes the built-in post tags editing interface, hides tags and tag links from public output, and returns 404 for tag archives. Existing tags and post assignments remain stored.
+- **Hide Default Category** — hides WordPress's configured default category (commonly “Uncategorized”) from public category lists, post category links and returns 404 for its archive. Posts remain assigned to it.
 - **Remove Adjacent-Post Links** — removes previous and next post relation links from the document head.
 - **Remove Login Language Switcher** — removes the language selector from the WordPress login page.
 - **Remove WP Shortlink** — removes the shortlink from the document head and HTTP `Link` header.
@@ -26,6 +29,7 @@ Each feature is independent and disabled by default. Enable only the features yo
 ### Security
 
 - **Disable Application Passwords** — disables WordPress Application Passwords.
+- **Disable Theme and Plugin File Editors** — blocks the built-in Theme File Editor and Plugin File Editor, including direct access. Plugin and theme installation and updates remain available.
 - **Disable Password Reset** — hides password recovery links and blocks the public password reset flow.
 - **Disable Pingbacks and Trackbacks** — blocks incoming and outgoing pingbacks and trackbacks; existing ping comments are kept.
 - **Disable REST API** — blocks REST API requests from unauthenticated users and removes standard REST API and oEmbed discovery links.
@@ -47,6 +51,7 @@ Each feature is independent and disabled by default. Enable only the features yo
 - **Disable Browser check in Dashboard** — disables the Browse Happy check and its remote request.
 - **Disable PHP version check in Dashboard** — disables the Dashboard PHP version check and its remote request.
 - **Remove WP News dashboard widget** — removes the WordPress Events and News widget from the Dashboard.
+- **Set Dashboard as WP Logo Link** — makes the admin-bar WordPress logo open the Dashboard and removes Get Involved, Support, and Feedback submenu links.
 
 ### Updates
 
