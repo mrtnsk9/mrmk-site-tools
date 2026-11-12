@@ -3,8 +3,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+require_once MRMK_ST_PLUGIN_DIR . 'includes/admin/class-site-utilities.php';
+
 class MRMK_ST_Settings_Page {
+	private $site_utilities;
+
 	public function __construct() {
+		$this->site_utilities = new MRMK_ST_Site_Utilities();
 		add_action( 'admin_menu', array( $this, 'add_settings_page' ) );
 		add_action( 'admin_init', array( $this, 'register_settings' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_assets' ) );
@@ -90,6 +95,7 @@ class MRMK_ST_Settings_Page {
 
 		$features = MRMK_ST_Feature_Registry::all();
 		$plugin   = MRMK_ST_Plugin::instance();
+		$site_utilities = $this->site_utilities;
 
 		require MRMK_ST_PLUGIN_DIR . 'includes/admin/views/settings-page.php';
 	}

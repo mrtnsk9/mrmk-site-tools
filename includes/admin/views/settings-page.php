@@ -166,4 +166,5 @@ natcasesort( $categories );
 			<?php submit_button( __( 'Save changes', 'mrmk-st' ), 'primary', 'submit', false ); ?>
 		</div>
 	</form>
+	<?php $site_utilities->render(); ?>
 </div>

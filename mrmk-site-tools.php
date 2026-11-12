@@ -21,4 +21,4 @@ define( 'MRMK_ST_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 
 require_once MRMK_ST_PLUGIN_DIR . 'includes/class-plugin.php';
 
-MRMK_ST_Plugin::instance();
+add_action( 'init', array( 'MRMK_ST_Plugin', 'instance' ), 0 );

@@ -60,6 +60,12 @@ Each feature is independent and disabled by default. Enable only the features yo
 - **Disable Auto updates - Translations** — disables automatic translation updates; translation updates can still be installed manually.
 - **Disable Auto updates - Themes** — disables automatic updates for themes.
 
+## Site Utilities
+
+- **Delete expired transients** — runs WordPress's expired-transient cleanup for database-backed transients. Active and non-expiring transients are kept, and external object-cache entries are not flushed.
+- **Flush Rank Math sitemap cache** — invalidates Rank Math's XML sitemap cache when Rank Math, the Sitemap module, and the cache API are available.
+- **Flush rewrite rules** — refreshes WordPress rewrite rules without rewriting `.htaccess` or other server configuration.
+
 ## Important notes
 
 - **Disable Comments** includes the behavior of **Block New Comments**. Use **Block New Comments** alone if existing comments should remain visible.
@@ -74,7 +80,7 @@ The plugin header currently reports testing up to WordPress 7.1.4. Minimum WordP
 
 ## Development
 
-Feature modules are stored in `includes/features/` and are discovered automatically. To add a feature, create a `class-*.php` module that implements `MRMK_ST_Feature_Interface`, provide its settings metadata, and register its behavior in `boot()`. Features should default to disabled unless there is a specific reason otherwise.
+Feature modules are stored in `includes/features/` and discovered automatically. Site Utility modules are stored in `includes/admin/utilities/` and discovered through `MRMK_ST_Utility_Interface`; each utility provides an `is_available(): bool` check, display metadata, and a `run(): bool` action result with separate success and failure messages. To add a feature, create a `class-*.php` module that implements `MRMK_ST_Feature_Interface`, provide its settings metadata, and register its behavior in `boot()`. Features should default to disabled unless there is a specific reason otherwise.
 
 Run PHP syntax checks from the plugin directory with:
 
