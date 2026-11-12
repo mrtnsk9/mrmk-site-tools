@@ -85,6 +85,12 @@ The settings page includes a reset action at the bottom. It removes the plugin's
 
 Requires WordPress 7.0 or later and PHP 8.3 or later. The plugin header reports testing up to WordPress 7.1.4.
 
+## GitHub releases and updates
+
+The plugin checks the latest stable release in `mrtnsk9/mrmk-site-tools` and offers newer versions through the standard WordPress Plugins and Dashboard Updates screens. Update packages are attached to each published GitHub release by the `Build release package` workflow.
+
+For each release, update the plugin version in the header and `MRMK_ST_PLUGIN_VERSION`, then publish a GitHub release using a `vMAJOR.MINOR.PATCH` tag, such as `v1.0.1`. The workflow attaches `mrmk-site-tools.zip`; keep that filename unchanged. Pre-releases are not offered as updates.
+
 ## Development
 
 Feature modules are stored in `includes/features/` and discovered automatically. Site Utility modules are stored in `includes/admin/utilities/` and discovered through `MRMK_ST_Utility_Interface`; each utility provides an `is_available(): bool` check, display metadata, and a `run(): bool` action result with separate success and failure messages. Utilities that display a report can also implement `MRMK_ST_Utility_Report_Interface`. To add a feature, create a `class-*.php` module that implements `MRMK_ST_Feature_Interface`, provide its settings metadata, and register its behavior in `boot()`. Features should default to disabled unless there is a specific reason otherwise.

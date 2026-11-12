@@ -22,5 +22,8 @@ define( 'MRMK_ST_PLUGIN_FILE', __FILE__ );
 define( 'MRMK_ST_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 
 require_once MRMK_ST_PLUGIN_DIR . 'includes/class-plugin.php';
+require_once MRMK_ST_PLUGIN_DIR . 'includes/class-github-updater.php';
+
+new MRMK_ST_GitHub_Updater();
 
 add_action( 'init', array( 'MRMK_ST_Plugin', 'instance' ), 0 );
