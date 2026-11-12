@@ -24,14 +24,6 @@ natcasesort( $categories );
 			<h1><?php echo esc_html__( 'mrmk Site Tools', 'mrmk-st' ); ?></h1>
 			<p class="mrmk-st-page__intro"><?php echo esc_html__( 'Enable the tools you want this site to use. Changes take effect on the next request.', 'mrmk-st' ); ?></p>
 		</div>
-		<span class="mrmk-st-page__count" data-feature-count>
-			<?php
-			printf(
-				esc_html( _n( '%s feature', '%s features', count( $features ), 'mrmk-st' ) ),
-				esc_html( number_format_i18n( count( $features ) ) )
-			);
-			?>
-		</span>
 	</header>
 
 	<form action="options.php" method="post" class="mrmk-st-form">

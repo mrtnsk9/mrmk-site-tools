@@ -35,7 +35,6 @@
 	font-size: 14px;
 }
 
-.mrmk-st-page__count,
 .mrmk-st-card__category {
 	display: inline-flex;
 	align-items: center;
@@ -272,10 +271,6 @@
 @media (max-width: 782px) {
 	.mrmk-st-page__header {
 		align-items: flex-start;
-	}
-
-	.mrmk-st-page__count {
-		flex: 0 0 auto;
 	}
 
 	.mrmk-st-toolbar {

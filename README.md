@@ -17,7 +17,7 @@ Each feature is independent and disabled by default. Enable only the features yo
 
 - **Block New Comments** — prevents new comments from being submitted; existing comments remain visible and stored.
 - **Disable Author Pages** — returns a 404 for author archives and removes standard author archive links from the front end.
-- **Disable Comments** — hides existing comments on public pages, blocks new comments, removes the admin-bar Comments menu item, and returns 404 for comment feeds. Comments remain stored and accessible in the admin.
+- **Disable Comments** — hides existing comments on public pages, blocks new comments, removes the admin-bar Comments menu item and the Discussion/Comments postboxes from the editor, and returns 404 for comment feeds. Comments remain stored and accessible in the Comments admin screen.
 - **Disable Feed Links** — removes feed discovery links and returns 404 for feed URLs.
 - **Disable WP Font Library** — removes the Fonts admin page, disables its REST API, and prevents user-managed font faces from loading. Existing font data remains stored, and theme fonts are unaffected.
 - **Disable Tags** — removes the built-in post tags editing interface, hides tags and tag links from public output, and returns 404 for tag archives. Existing tags and post assignments remain stored.
@@ -32,7 +32,7 @@ Each feature is independent and disabled by default. Enable only the features yo
 - **Disable Application Passwords** — disables WordPress Application Passwords.
 - **Disable Theme and Plugin File Editors** — blocks the built-in Theme File Editor and Plugin File Editor, including direct access. Plugin and theme installation and updates remain available.
 - **Disable Password Reset** — hides password recovery links and blocks the public password reset flow.
-- **Disable Pingbacks and Trackbacks** — blocks incoming and outgoing pingbacks and trackbacks; existing ping comments are kept.
+- **Disable Pingbacks and Trackbacks** — blocks incoming and outgoing pingbacks and trackbacks, and removes the Send Trackbacks postbox from the editor. Existing ping comments are kept.
 - **Disable REST API** — blocks REST API requests from unauthenticated users and removes standard REST API and oEmbed discovery links.
 - **Disable XML-RPC** — disables the XML-RPC API and removes its RSD discovery link.
 - **Remove Users from REST** — blocks public access to REST API user listings and individual user endpoints, and hides those routes from the API index. Users with the `list_users` capability retain access.

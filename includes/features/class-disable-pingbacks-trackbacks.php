@@ -8,7 +8,7 @@ class MRMK_ST_Feature_Disable_Pingbacks_Trackbacks implements MRMK_ST_Feature_In
 		return array(
 			'slug'            => 'disable_pingbacks_trackbacks',
 			'name'            => 'Disable Pingbacks and Trackbacks',
-			'description'     => 'Blocks incoming and outgoing pingbacks and trackbacks. Existing ping comments are kept.',
+			'description'     => 'Blocks incoming and outgoing pingbacks and trackbacks, and removes the Send Trackbacks postbox. Existing ping comments are kept.',
 			'category'        => 'Security',
 			'default_enabled' => false,
 		);
@@ -21,9 +21,14 @@ class MRMK_ST_Feature_Disable_Pingbacks_Trackbacks implements MRMK_ST_Feature_In
 		add_filter( 'trackback_url', array( __CLASS__, 'remove_trackback_url' ), 100 );
 		add_filter( 'bloginfo_url', array( __CLASS__, 'remove_pingback_url' ), 100, 2 );
 		add_filter( 'wp_headers', array( __CLASS__, 'remove_pingback_header' ), 100, 2 );
+		add_action( 'add_meta_boxes', array( __CLASS__, 'remove_trackbacks_meta_box' ), 100, 2 );
 
 		remove_action( 'do_all_pings', 'do_all_pingbacks', 10 );
 		remove_action( 'do_all_pings', 'do_all_trackbacks', 10 );
+	}
+
+	public static function remove_trackbacks_meta_box( $post_type, $post ) {
+		remove_meta_box( 'trackbacksdiv', $post_type, 'normal' );
 	}
 
 	public static function remove_pingback_xmlrpc_method( $methods ) {
