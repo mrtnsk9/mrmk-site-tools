@@ -7,7 +7,7 @@ class MRMK_ST_Feature_Set_Dashboard_As_WP_Logo_Link implements MRMK_ST_Feature_I
 	public static function get_metadata() {
 		return array(
 			'slug'            => 'set_dashboard_as_wp_logo_link',
-			'name'            => 'Set Dashboard as WP Logo Link',
+			'name'            => 'Set Admin Bar WordPress Logo Link to Dashboard',
 			'description'     => 'Makes the WordPress logo open the Dashboard and removes Get Involved, Support, and Feedback from its admin-bar submenu.',
 			'category'        => 'Dashboard',
 			'default_enabled' => false,

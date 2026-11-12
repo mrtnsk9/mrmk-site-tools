@@ -54,7 +54,7 @@ Each feature is independent and disabled by default. Enable only the features yo
 - **Disable Browser check in Dashboard** — disables the Browse Happy check and its remote request.
 - **Disable PHP version check in Dashboard** — disables the Dashboard PHP version check and its remote request.
 - **Remove WP News dashboard widget** — removes the WordPress Events and News widget from the Dashboard.
-- **Set Dashboard as WP Logo Link** — makes the admin-bar WordPress logo open the Dashboard and removes Get Involved, Support, and Feedback submenu links.
+- **Set Admin Bar WordPress Logo Link to Dashboard** — makes the admin-bar WordPress logo open the Dashboard and removes Get Involved, Support, and Feedback submenu links.
 
 ### Updates
 

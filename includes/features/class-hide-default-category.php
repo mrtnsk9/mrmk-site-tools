@@ -114,7 +114,7 @@ class MRMK_ST_Feature_Hide_Default_Category implements MRMK_ST_Feature_Interface
 	}
 
 	private static function should_hide_category() {
-		return ! is_admin() && ! current_user_can( 'manage_categories' );
+		return ! is_admin();
 	}
 
 	private static function get_default_category_id() {
