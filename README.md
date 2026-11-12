@@ -17,12 +17,14 @@ Each feature is independent and disabled by default. Enable only the features yo
 
 - **Block New Comments** — prevents new comments from being submitted; existing comments remain visible and stored.
 - **Disable Author Pages** — returns a 404 for author archives and removes standard author archive links from the front end.
+- **Disable Categories** — removes the built-in post categories editing interface, hides categories and category links from public output, and returns 404 for category archives. Existing categories and post assignments remain stored.
 - **Disable Comments** — hides existing comments on public pages, blocks new comments, removes the admin-bar Comments menu item and the Discussion/Comments postboxes from the editor, and returns 404 for comment feeds. Comments remain stored and accessible in the Comments admin screen.
 - **Disable Feed Links** — removes feed discovery links and returns 404 for feed URLs.
 - **Disable WP Font Library** — removes the Fonts admin page, disables its REST API, and prevents user-managed font faces from loading. Existing font data remains stored, and theme fonts are unaffected.
 - **Disable Tags** — removes the built-in post tags editing interface, hides tags and tag links from public output, and returns 404 for tag archives. Existing tags and post assignments remain stored.
 - **Hide Default Category** — hides WordPress's configured default category (commonly “Uncategorized”) from public category lists, post category links and returns 404 for its archive. Posts remain assigned to it.
 - **Limit Image Upload Size** — sets a configurable maximum image file size in KB. Videos and other file types are unaffected.
+- **Remove trailing slashes from void elements in head** — removes XHTML-style trailing slashes from void elements in the document head without changing body markup.
 - **Remove Adjacent-Post Links** — removes previous and next post relation links from the document head.
 - **Remove Login Language Switcher** — removes the language selector from the WordPress login page.
 - **Remove WP Shortlink** — removes the shortlink from the document head and HTTP `Link` header.
@@ -81,7 +83,7 @@ The settings page includes a reset action at the bottom. It removes the plugin's
 
 ## Compatibility
 
-The plugin header currently reports testing up to WordPress 7.1.4. Minimum WordPress and PHP versions are not declared yet.
+Requires WordPress 7.0 or later and PHP 8.3 or later. The plugin header reports testing up to WordPress 7.1.4.
 
 ## Development
 

@@ -4,8 +4,9 @@ Plugin Name: mrmk Site Tools
 Plugin URI: https://github.com/mrtnsk9/mrmk-site-tools
 Description: A collection of practical WordPress site tools.
 Version: 1.0.0
+Requires at least: 7.0
 Tested up to: 7.1.4
-Requires PHP: 8.3 or later
+Requires PHP: 8.3
 Text Domain: mrmk-st
 Author: mrtnsk9
 License: GPLv3 or later
