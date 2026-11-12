@@ -167,4 +167,23 @@ natcasesort( $categories );
 		</div>
 	</form>
 	<?php $site_utilities->render(); ?>
+	<section id="mrmk-st-reset" class="mrmk-st-reset" aria-labelledby="mrmk-st-reset-title">
+		<h2 id="mrmk-st-reset-title"><?php echo esc_html__( 'Reset plugin configuration', 'mrmk-st' ); ?></h2>
+		<p><?php echo esc_html__( 'Restore all mrmk Site Tools feature selections and settings to their defaults. This does not delete content or other site data.', 'mrmk-st' ); ?></p>
+		<?php if ( $configuration_reset ) : ?>
+			<div class="notice notice-success inline">
+				<p><?php echo esc_html__( 'Plugin configuration was reset to its defaults.', 'mrmk-st' ); ?></p>
+			</div>
+		<?php endif; ?>
+		<form
+			class="mrmk-st-reset__form"
+			action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>"
+			method="post"
+			onsubmit="return confirm('<?php echo esc_js( __( 'Reset all mrmk Site Tools settings to their defaults?', 'mrmk-st' ) ); ?>');"
+		>
+			<input type="hidden" name="action" value="mrmk_st_reset_configuration" />
+			<?php wp_nonce_field( 'mrmk_st_reset_configuration' ); ?>
+			<?php submit_button( __( 'Reset configuration', 'mrmk-st' ), 'delete', 'submit', false ); ?>
+		</form>
+	</section>
 </div>

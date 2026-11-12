@@ -66,6 +66,10 @@ Each feature is independent and disabled by default. Enable only the features yo
 - **Flush Rank Math sitemap cache** — invalidates Rank Math's XML sitemap cache when Rank Math, the Sitemap module, and the cache API are available.
 - **Flush rewrite rules** — refreshes WordPress rewrite rules without rewriting `.htaccess` or other server configuration.
 
+## Configuration reset
+
+The settings page includes a reset action at the bottom. It removes the plugin's saved feature selections and values so they return to their defaults; it does not delete site content or other data.
+
 ## Important notes
 
 - **Disable Comments** includes the behavior of **Block New Comments**. Use **Block New Comments** alone if existing comments should remain visible.

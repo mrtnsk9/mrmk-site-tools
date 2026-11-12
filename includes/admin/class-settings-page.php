@@ -13,6 +13,7 @@ class MRMK_ST_Settings_Page {
 		add_action( 'admin_menu', array( $this, 'add_settings_page' ) );
 		add_action( 'admin_init', array( $this, 'register_settings' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_assets' ) );
+		add_action( 'admin_post_mrmk_st_reset_configuration', array( $this, 'reset_configuration' ) );
 	}
 
 	public function add_settings_page() {
@@ -67,6 +68,29 @@ class MRMK_ST_Settings_Page {
 		return $clean;
 	}
 
+	public function reset_configuration() {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_die(
+				esc_html__( 'You are not allowed to reset plugin settings.', 'mrmk-st' ),
+				'',
+				array( 'response' => 403 )
+			);
+		}
+
+		check_admin_referer( 'mrmk_st_reset_configuration' );
+		delete_option( MRMK_ST_Plugin::OPTION_NAME );
+
+		$redirect_url = add_query_arg(
+			array(
+				'page'                => 'mrmk-site-tools',
+				'configuration-reset' => '1',
+			),
+			admin_url( 'options-general.php' )
+		);
+		wp_safe_redirect( $redirect_url . '#mrmk-st-reset' );
+		exit;
+	}
+
 	public function enqueue_assets( $hook_suffix ) {
 		if ( 'settings_page_mrmk-site-tools' !== $hook_suffix ) {
 			return;
@@ -96,6 +120,9 @@ class MRMK_ST_Settings_Page {
 		$features = MRMK_ST_Feature_Registry::all();
 		$plugin   = MRMK_ST_Plugin::instance();
 		$site_utilities = $this->site_utilities;
+		$configuration_reset = isset( $_GET['configuration-reset'] ) &&
+			is_string( $_GET['configuration-reset'] ) &&
+			'1' === wp_unslash( $_GET['configuration-reset'] );
 
 		require MRMK_ST_PLUGIN_DIR . 'includes/admin/views/settings-page.php';
 	}
