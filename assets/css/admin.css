@@ -162,6 +162,26 @@
 	border-top: 1px solid #f0f0f1;
 }
 
+.mrmk-st-card__settings {
+	display: grid;
+	grid-template-columns: auto minmax(100px, 120px);
+	align-items: center;
+	gap: 8px 12px;
+	margin-top: 14px;
+	padding-top: 12px;
+	border-top: 1px solid #f0f0f1;
+	color: #1d2327;
+	font-size: 13px;
+}
+
+.mrmk-st-card__settings input {
+	width: 100%;
+}
+
+.mrmk-st-card__settings p {
+	grid-column: 1 / -1;
+}
+
 .mrmk-st-toggle {
 	display: inline-flex;
 	align-items: center;

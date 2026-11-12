@@ -38,6 +38,25 @@ class MRMK_ST_Settings_Page {
 
 		foreach ( MRMK_ST_Feature_Registry::all() as $slug => $feature ) {
 			$clean[ $slug ] = empty( $input[ $slug ] ) ? 0 : 1;
+
+			if ( empty( $feature['settings'] ) || ! is_array( $feature['settings'] ) ) {
+				continue;
+			}
+
+			foreach ( $feature['settings'] as $setting_name => $setting ) {
+				if ( ! is_array( $setting ) || ! isset( $setting['type'] ) || 'number' !== $setting['type'] ) {
+					continue;
+				}
+
+				$min     = isset( $setting['min'] ) ? absint( $setting['min'] ) : 0;
+				$max     = isset( $setting['max'] ) ? absint( $setting['max'] ) : PHP_INT_MAX;
+				$default = isset( $setting['default'] ) ? absint( $setting['default'] ) : $min;
+				$value   = isset( $input[ $setting_name ] ) && is_scalar( $input[ $setting_name ] )
+					? absint( $input[ $setting_name ] )
+					: $default;
+
+				$clean[ $setting_name ] = max( $min, min( $max, $value ) );
+			}
 		}
 
 		return $clean;

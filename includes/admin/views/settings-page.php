@@ -7,6 +7,8 @@ if ( empty($features) ) exit;
 if ( empty($plugin) ) exit;
 
 /** @var MRMK_ST_Plugin $plugin */
+$saved_options = get_option( MRMK_ST_Plugin::OPTION_NAME, array() );
+$saved_options = is_array( $saved_options ) ? $saved_options : array();
 $categories = array();
 foreach ( $features as $feature ) {
 	if ( ! empty( $feature['category'] ) ) {
@@ -128,6 +130,36 @@ natcasesort( $categories );
 								/>
 								<span class="mrmk-st-toggle__track" aria-hidden="true"></span>
 							</label>
+							<?php if ( ! empty( $feature['settings'] ) && is_array( $feature['settings'] ) ) : ?>
+								<div class="mrmk-st-card__settings">
+									<?php foreach ( $feature['settings'] as $setting_name => $setting ) : ?>
+										<?php
+										if ( ! is_array( $setting ) || ! isset( $setting['type'] ) || 'number' !== $setting['type'] ) {
+											continue;
+										}
+										$setting_id    = 'mrmk-st-setting-' . $slug . '-' . $setting_name;
+										$setting_value = isset( $saved_options[ $setting_name ] )
+											? $saved_options[ $setting_name ]
+											: $setting['default'];
+										?>
+										<label for="<?php echo esc_attr( $setting_id ); ?>">
+											<?php echo esc_html( $setting['label'] ); ?>
+										</label>
+										<input
+											id="<?php echo esc_attr( $setting_id ); ?>"
+											name="<?php echo esc_attr( MRMK_ST_Plugin::OPTION_NAME ); ?>[<?php echo esc_attr( $setting_name ); ?>]"
+											type="number"
+											min="<?php echo esc_attr( $setting['min'] ); ?>"
+											max="<?php echo esc_attr( $setting['max'] ); ?>"
+											step="1"
+											value="<?php echo esc_attr( $setting_value ); ?>"
+										/>
+										<?php if ( ! empty( $setting['description'] ) ) : ?>
+											<p><?php echo esc_html( $setting['description'] ); ?></p>
+										<?php endif; ?>
+									<?php endforeach; ?>
+								</div>
+							<?php endif; ?>
 						</div>
 					</article>
 				<?php endforeach; ?>

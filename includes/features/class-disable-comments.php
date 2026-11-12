@@ -23,6 +23,7 @@ class MRMK_ST_Feature_Disable_Comments implements MRMK_ST_Feature_Interface {
 		add_filter( 'feed_links_extra_show_post_comments_feed', '__return_false', 100 );
 		add_filter( 'wp_headers', array( __CLASS__, 'set_comment_feed_content_type' ), 100, 2 );
 		add_action( 'template_redirect', array( __CLASS__, 'disable_comment_feed' ), 1 );
+		add_action( 'wp_before_admin_bar_render', array( __CLASS__, 'remove_admin_bar_comments' ) );
 	}
 
 	public static function hide_comment_queries( $comments, $query ) {
@@ -56,6 +57,14 @@ class MRMK_ST_Feature_Disable_Comments implements MRMK_ST_Feature_Interface {
 		$wp_query->is_feed = false;
 		status_header( 404 );
 		nocache_headers();
+	}
+
+	public static function remove_admin_bar_comments() {
+		global $wp_admin_bar;
+
+		if ( is_object( $wp_admin_bar ) ) {
+			$wp_admin_bar->remove_node( 'comments' );
+		}
 	}
 
 	private static function is_public_frontend_request() {

@@ -17,11 +17,12 @@ Each feature is independent and disabled by default. Enable only the features yo
 
 - **Block New Comments** — prevents new comments from being submitted; existing comments remain visible and stored.
 - **Disable Author Pages** — returns a 404 for author archives and removes standard author archive links from the front end.
-- **Disable Comments** — hides existing comments on public pages, blocks new comments, and returns 404 for comment feeds. Comments remain stored and accessible in the admin.
+- **Disable Comments** — hides existing comments on public pages, blocks new comments, removes the admin-bar Comments menu item, and returns 404 for comment feeds. Comments remain stored and accessible in the admin.
 - **Disable Feed Links** — removes feed discovery links and returns 404 for feed URLs.
 - **Disable WP Font Library** — removes the Fonts admin page, disables its REST API, and prevents user-managed font faces from loading. Existing font data remains stored, and theme fonts are unaffected.
 - **Disable Tags** — removes the built-in post tags editing interface, hides tags and tag links from public output, and returns 404 for tag archives. Existing tags and post assignments remain stored.
 - **Hide Default Category** — hides WordPress's configured default category (commonly “Uncategorized”) from public category lists, post category links and returns 404 for its archive. Posts remain assigned to it.
+- **Limit Image Upload Size** — sets a configurable maximum image file size in KB. Videos and other file types are unaffected.
 - **Remove Adjacent-Post Links** — removes previous and next post relation links from the document head.
 - **Remove Login Language Switcher** — removes the language selector from the WordPress login page.
 - **Remove WP Shortlink** — removes the shortlink from the document head and HTTP `Link` header.
@@ -56,6 +57,7 @@ Each feature is independent and disabled by default. Enable only the features yo
 ### Updates
 
 - **Disable Auto updates - Plugins** — disables automatic updates for plugins.
+- **Disable Auto updates - Translations** — disables automatic translation updates; translation updates can still be installed manually.
 - **Disable Auto updates - Themes** — disables automatic updates for themes.
 
 ## Important notes
