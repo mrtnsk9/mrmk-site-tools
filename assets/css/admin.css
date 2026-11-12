@@ -342,6 +342,44 @@
 	color: #8a2424;
 }
 
+.mrmk-st-media-audit-summary {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	gap: 12px;
+	max-width: 1100px;
+	margin: 20px 0;
+}
+
+.mrmk-st-media-audit-summary > div {
+	padding: 16px;
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	background: #fff;
+}
+
+.mrmk-st-media-audit-summary h2 {
+	margin: 0 0 8px;
+	font-size: 13px;
+}
+
+.mrmk-st-media-audit-summary p {
+	margin: 0;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.mrmk-st-media-audit-report__table {
+	max-width: 1100px;
+	overflow-x: auto;
+}
+
+.mrmk-st-media-audit-pagination {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-top: 16px;
+}
+
 @media (max-width: 782px) {
 	.mrmk-st-page__header {
 		align-items: flex-start;

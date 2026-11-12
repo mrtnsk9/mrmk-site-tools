@@ -4,6 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 require_once MRMK_ST_PLUGIN_DIR . 'includes/admin/utilities/interface-utility.php';
+require_once MRMK_ST_PLUGIN_DIR . 'includes/admin/utilities/interface-utility-report.php';
 
 class MRMK_ST_Utility_Registry {
 	public static function all() {
