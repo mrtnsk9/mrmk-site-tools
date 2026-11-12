@@ -9,6 +9,7 @@ Tested up to: 7.1.4
 Requires PHP: 8.3
 Text Domain: mrmk-st
 Author: mrtnsk9
+Author URI:  https://github.com/mrtnsk9/
 License: GPLv3 or later
 */
 
